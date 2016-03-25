@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Canvas 101</title>
+	<style type="text/css" media="screen">
+		canvas {
+			border: 1px solid blue;
+			margin: 30px;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="the-canvas" height="500px" width="500px">
+		<!-- placeholder -->
+	</canvas>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+	<script type="text/javascript">
+		var canvas = document.getElementById('the-canvas');
+		// context is an object specific to this canvas that allows us to draw stuff
+		var context = canvas.getContext('2d');
+		console.log(context);
+
+		// context.strokeStyle = '#ff0000';
+		// start at 0
+		// context.beginPath();
+		// context.moveTo(0,0);
+		// context.lineTo(200,200);
+		// actually draw the line with stroke()
+		// context.stroke();
+
+		// draw another line
+		// context.moveTo(0,200);
+		// context.lineTo(200,0);
+		// context.stroke();
+
+		// draw an arc
+		//context.arc(175, 175, 50, 0, 2*Math.PI);
+		//context.stroke();
+
+		// draw a rectangle
+		// context.beginPath();
+		// context.rect(300, 20, 100, 200);
+		// context.stroke();
+
+		var x = 150;
+		var y = 150;
+		var radius = 10;
+		var endArc = 2;
+
+		function draw() {
+			// clear out the entire area of the context
+			context.clearRect(0,0,500,500);
+			// start drawing
+			context.beginPath();
+			context.arc(x, y, radius, 0, Math.PI*endArc);
+			context.fill();
+			x+=4;
+			y+=2;
+			radius+=1;
+		}
+
+		setInterval(draw, 15);
+
+	</script>
+</body>
+</html>
