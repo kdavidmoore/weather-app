@@ -23,23 +23,34 @@
 					<!-- canvas context goes here -->
 				</canvas>
 			</div>
-			<div id="icon-wrapper" class="col-sm-3 text-center">
-				<div id="weather-icon">
-					<!-- weather icon goes here -->
-				</div>
-				<div id="weather-description">
-					<!-- weather description goes here -->
+			<div class="col-sm-3">
+				<div id="add-padding" class="row">
+					<div id="icon-wrapper" class="col-sm-6 text-right">
+						<div id="weather-icon">
+							<!-- weather icon goes here -->
+						</div>
+					</div>
+					<div class="col-sm-6 text-left">
+						<div id="city-name">
+							<!-- city name goes here -->
+						</div>
+						<div id="weather-description">
+							<!-- weather description goes here -->
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-sm-6 col-sm-offset-3 text-center">
-			    <div class="input-group">
-			      <input type="text" class="form-control" placeholder="Search for a city">
-			      <span class="input-group-btn">
-			        <button id="search-btn" class="btn btn-default" type="button">Search</button>
-			      </span>
-			    </div><!-- /input-group -->
+				<form id="search-form">
+				    <div class="input-group">
+				      <input id="search-box" type="text" class="typeahead form-control" placeholder="Search for a city">
+				      <span class="input-group-btn">
+				        <input id="search-btn" class="btn btn-default" type="submit" value="Get the weather">
+				      </span>
+				    </div><!-- /input-group -->
+				</form>
 			</div>
 		</div>
 	</div>
