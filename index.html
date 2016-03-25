@@ -1,15 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+ 	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Weather App</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" media="screen" href="css/styles.css">
 </head>
 <body>
-	<canvas id="the-canvas" height="500px" width="500px">
-		<!-- placeholder -->
-	</canvas>
+	
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12 text-center">
+				<h2>Current Conditions</h2>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-3 col-sm-offset-3 text-center">
+				<canvas id="current-temp">
+					<!-- canvas context goes here -->
+				</canvas>
+			</div>
+			<div id="icon-wrapper" class="col-sm-3 text-center">
+				<div id="weather-icon">
+					<!-- weather icon goes here -->
+				</div>
+				<div id="weather-description">
+					<!-- weather description goes here -->
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-6 col-sm-offset-3 text-center">
+			    <div class="input-group">
+			      <input type="text" class="form-control" placeholder="Search for a city">
+			      <span class="input-group-btn">
+			        <button id="search-btn" class="btn btn-default" type="button">Search</button>
+			      </span>
+			    </div><!-- /input-group -->
+			</div>
+		</div>
+	</div>
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 	<script src="js/scripts.js"></script>
 </body>
 </html>
