@@ -57,7 +57,7 @@ function animate(current) {
 
 function displayWeatherData() {
 	$('#weather-icon').html('<img src="' + iconBaseURL + weatherIcon + '.png">');
-	$('#weather-description').html('<h5>' + weatherDescription + '</h5>');
+	$('#weather-description').html('<h4>' + weatherDescription + '</h4>');
 	$('#city-name').html('<h3>' + cityName + '</h3>');
 	animate();
 }
