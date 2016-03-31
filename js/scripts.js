@@ -87,6 +87,7 @@ $(document).ready(function(){
 		var searchEndPoint = baseURL + encodeURI(searchStr) + options + apiKey;
 		var canvas = $('#current-temp');
 		context = canvas[0].getContext('2d');
+		//context.clearRect(0,0, canvas.width, canvas.height);
 		currPerc = 0;
 		getWeatherReport(searchEndPoint);
 		event.preventDefault();
