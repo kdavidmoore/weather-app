@@ -4,11 +4,6 @@
 	font-family: Helvetica, sans-serif;
 }
 
-#weather-info {
+#add-padding {
 	padding-top: 50px;
-}
-
-#icon-wrapper li {
-	float: left;
-	list-style-type: none;
 }
