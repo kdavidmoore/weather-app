@@ -1,8 +1,10 @@
-var apiKey = '&APPID=2664a8f717e9cd0c3d61f2a4990d5df5'; 
-var baseURL = 'http://api.openweathermap.org/data/2.5/weather?q=';
-var options = '&units=Imperial';
-var endPointOnLoad = baseURL + 'Atlanta' + options + apiKey;
-var iconBaseURL = 'http://openweathermap.org/img/w/';
+const apiKey = '&APPID=2664a8f717e9cd0c3d61f2a4990d5df5'; 
+const baseURL = 'http://api.openweathermap.org/data/2.5/weather?q=';
+const forecaseBaseURL = 'http://api.openweathermap.org/data/2.5/forecast?q=';
+const options = '&units=Imperial';
+const endPointOnLoad = baseURL + 'Atlanta' + options + apiKey;
+const iconBaseURL = 'http://openweathermap.org/img/w/';
+const forecastEndPoint = forecaseBaseURL + 'Atlanta,us' + options + apiKey;
 
 var currTemp = 0;
 var currPerc = 0;
@@ -12,13 +14,30 @@ var cityName = '';
 var context;
 
 function getWeatherReport(endPoint) {
-	var theEndPoint = endPoint;
-	$.getJSON(theEndPoint, function(weatherData) {
+	$.getJSON(endPoint, function(weatherData) {
+		//console.log(weatherData);
 		currTemp = weatherData.main.temp;
 		weatherIcon = weatherData.weather[0].icon;
 		weatherDescription = weatherData.weather[0].main;
 		cityName = weatherData.name;
 		displayWeatherData();
+	});
+}
+
+function getForecast(endPoint) {
+	var thisDayHi, thisDayLo, tomorrow_high, tomorrow_low, maxTemp, minTemp;
+	$.getJSON(endPoint, function(forecast) {
+		console.log(forecast);
+		for (var i=1; i<5; i++){
+			thisDayHi = '#day-' + i + '-hi';
+			thisDayLo = '#day-' + i + '-lo';
+			maxTemp = forecast.list[i].main.temp_max + '°F';
+			minTemp = forecast.list[i].main.temp_min + '°F';
+			tomorrow_high = $(thisDayHi);
+			tomorrow_high.html(maxTemp);
+			tomorrow_low = $(thisDayLo);
+			tomorrow_low.html(minTemp);
+		}
 	});
 }
 
@@ -43,7 +62,7 @@ function animate(current) {
 	// to draw, use stroke() for lines, fill() for shapes
 	context.stroke();
 	// set font for temperature indicator
-	context.font = '48px Myriad Pro';
+	context.font = '42px Helvetica';
 	context.fillStyle = tempColor;
 	context.textBaseLine = 'bottom';
 	context.fillText(currTempStr, 110, 15*6);
@@ -81,14 +100,18 @@ $(document).ready(function(){
 	// jQuery requires you specify an index for your canvas element
 	context = canvas[0].getContext('2d');
 	getWeatherReport(endPointOnLoad);
+	getForecast(forecastEndPoint);
 
 	$('#search-form').submit(function(){
+		event.preventDefault();
 		var searchStr = $('#search-box').val();
 		var searchEndPoint = baseURL + encodeURI(searchStr) + options + apiKey;
+		var searchForecastEndPoint = forecaseBaseURL + encodeURI(searchStr) + ',us' + options + apiKey;
+
 		var canvas = $('#current-temp');
 		context = canvas[0].getContext('2d');
 		currPerc = 0;
 		getWeatherReport(searchEndPoint);
-		event.preventDefault();
+		getForecast(searchForecastEndPoint);
 	});
 });

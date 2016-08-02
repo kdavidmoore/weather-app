@@ -4,8 +4,7 @@
  	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Weather App</title>
-	<!-- Latest compiled and minified CSS -->
+	<title>Weather</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" media="screen" href="css/styles.css">
 </head>
@@ -42,6 +41,28 @@
 			</div>
 		</div>
 		<div class="row">
+			<div class="col-sm-2 col-sm-offset-2 forecast">
+				<h5 class="text-center">Tomorrow</h5>
+				<div>High: <span id="day-1-hi"></span></div>
+				<div>Low: <span id="day-1-lo"></span></div>
+			</div>
+			<div class="col-sm-2 forecast">
+				<h5 class="text-center">Day 2</h5>
+				<div>High: <span id="day-2-hi"></span></div>
+				<div>Low: <span id="day-2-lo"></span></div>
+			</div>
+			<div class="col-sm-2 forecast">
+				<h5 class="text-center">Day 3</h5>
+				<div>High: <span id="day-3-hi"></span></div>
+				<div>Low: <span id="day-3-lo"></span></div>
+			</div>
+			<div class="col-sm-2 forecast">
+				<h5 class="text-center">Day 4</h5>
+				<div>High: <span id="day-4-hi"></span></div>
+				<div>Low: <span id="day-4-lo"></span></div>
+			</div>
+		</div>
+		<div class="row">
 			<div class="col-sm-6 col-sm-offset-3 text-center">
 				<form id="search-form">
 				    <div class="input-group">
@@ -56,7 +77,6 @@
 	</div>
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 	<script src="js/scripts.js"></script>
 </body>

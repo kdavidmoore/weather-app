@@ -7,3 +7,13 @@
 #add-padding {
 	padding-top: 50px;
 }
+
+#search-form {
+	margin-top: 20px;
+}
+
+.forecast {
+	border: 5px solid white;
+	background-color: #f0f0f0;
+	padding: 5px;
+}
