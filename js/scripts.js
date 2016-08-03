@@ -29,10 +29,15 @@ function getForecast(endPoint) {
 	$.getJSON(endPoint, function(forecast) {
 		console.log(forecast);
 		for (var i=1; i<5; i++){
+			thisDayDesc = '#day-' + i + '-desc';
 			thisDayHi = '#day-' + i + '-hi';
 			thisDayLo = '#day-' + i + '-lo';
+			description = forecast.list[i].weather[0].description;
 			maxTemp = forecast.list[i].main.temp_max + '°F';
 			minTemp = forecast.list[i].main.temp_min + '°F';
+
+			tomorrow_desc = $(thisDayDesc);
+			tomorrow_desc.html(description);
 			tomorrow_high = $(thisDayHi);
 			tomorrow_high.html(maxTemp);
 			tomorrow_low = $(thisDayLo);
